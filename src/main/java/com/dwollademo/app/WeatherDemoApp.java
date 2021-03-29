@@ -21,17 +21,17 @@ import com.dwollademo.model.Root;
 @ComponentScan("com.dwollademo")
 public class WeatherDemoApp {
 
-	
-	  private static final Logger LOGGER =
-	  LogManager.getLogger(WeatherDemoApp.class);
-	  
-	  
-	  @Value("${weather.apiUrl}") private String apiUrl;
-	  
-	  @Value("${weather.apiKey}") private String apiKey;
-	  
-	  @Value("${weather.units}") private String units;
-	 
+	/*
+	 * private static final Logger LOGGER =
+	 * LogManager.getLogger(WeatherDemoApp.class);
+	 * 
+	 * 
+	 * @Value("${weather.apiUrl}") private String apiUrl;
+	 * 
+	 * @Value("${weather.apiKey}") private String apiKey;
+	 * 
+	 * @Value("${weather.units}") private String units;
+	 */
 	 
 
 	public static void main(String[] args) {
@@ -40,25 +40,25 @@ public class WeatherDemoApp {
 	}
 
 	
-	
-	  @Bean public CommandLineRunner run(RestTemplate restTemplate) throws
-	  Exception { return args -> { try { System.out.println("Where are you?");
-	  Scanner sc = new Scanner(System.in); String city = sc.nextLine(); sc.close();
-	  UriComponents uriComponents = UriComponentsBuilder .newInstance()
-	  .scheme("http") .host(apiUrl) .path("")
-	  .query("q={keyword}&appid={appid}&units={unit}")
-	  .buildAndExpand(city,apiKey,units); String uri=uriComponents.toString();
-	  LOGGER.debug("URI formed is:"+uri);
-	  
-	  Root root = restTemplate.getForObject(uri, Root.class);
-	  System.out.println(city + " weather:\n" + root.getMain().getTemp() +
-	  " degrees Fahrenheit "); } catch(Exception e) {
-	  LOGGER.info("Exception occured:"+e.getMessage()); }
-	  
-	  
-	  
-	  }; }
-	 
+	/*
+	 * @Bean public CommandLineRunner run(RestTemplate restTemplate) throws
+	 * Exception { return args -> { try { System.out.println("Where are you?");
+	 * Scanner sc = new Scanner(System.in); String city = sc.nextLine(); sc.close();
+	 * UriComponents uriComponents = UriComponentsBuilder .newInstance()
+	 * .scheme("http") .host(apiUrl) .path("")
+	 * .query("q={keyword}&appid={appid}&units={unit}")
+	 * .buildAndExpand(city,apiKey,units); String uri=uriComponents.toString();
+	 * LOGGER.debug("URI formed is:"+uri);
+	 * 
+	 * Root root = restTemplate.getForObject(uri, Root.class);
+	 * System.out.println(city + " weather:\n" + root.getMain().getTemp() +
+	 * " degrees Fahrenheit "); } catch(Exception e) {
+	 * LOGGER.info("Exception occured:"+e.getMessage()); }
+	 * 
+	 * 
+	 * 
+	 * }; }
+	 */
 	 
 
 }
