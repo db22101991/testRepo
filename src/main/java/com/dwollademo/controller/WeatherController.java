@@ -16,6 +16,7 @@ import com.dwollademo.model.Main;
 import com.dwollademo.model.Root;
 
 @RestController
+@RequestMapping("api/v1")
 public class WeatherController {
 
 	@Value("${weather.apiUrl}")
